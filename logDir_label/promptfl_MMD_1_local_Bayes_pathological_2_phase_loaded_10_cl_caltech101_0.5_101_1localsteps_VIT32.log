@@ -1,0 +1,596 @@
+[Config]
+BackBone='ViT-B/32'
+alpha=0.5
+batch_size=64
+choose=''
+gctx=16
+learning_rate=0.01
+local_epochs=1
+num_classes=101
+num_clients (per domain)=10
+round=10
+seed=1
+Loading dataset: Caltech101
+Reading split from /home/pal194/FedAPT/data/caltech101/split_zhou_Caltech101.json
+Creating a 2-shot dataset
+data_sources len 1
+data_source len 4128
+tracker len 100
+Creating a 2-shot dataset
+data_sources len 1
+data_source len 1649
+tracker len 100
+Creating a baseline federated dataset
+class_num 100
+user class dict total [20, 79, 93, 54, 52, 65, 0, 1, 48, 74]
+idx: 0 , output_dict_len: 673
+user class dict total [44, 82, 35, 69, 91, 42, 33, 14, 5, 62]
+idx: 1 , output_dict_len: 296
+user class dict total [32, 55, 96, 10, 21, 31, 90, 27, 28, 76]
+idx: 2 , output_dict_len: 251
+user class dict total [80, 71, 66, 58, 23, 70, 60, 72, 17, 18]
+idx: 3 , output_dict_len: 275
+user class dict total [45, 34, 11, 56, 84, 13, 41, 30, 24, 85]
+idx: 4 , output_dict_len: 369
+user class dict total [51, 75, 37, 6, 53, 94, 95, 39, 47, 98]
+idx: 5 , output_dict_len: 265
+user class dict total [36, 7, 50, 3, 63, 59, 9, 77, 64, 92]
+idx: 6 , output_dict_len: 286
+user class dict total [86, 97, 61, 19, 25, 4, 16, 8, 46, 26]
+idx: 7 , output_dict_len: 675
+user class dict total [2, 88, 29, 22, 87, 67, 68, 38, 83, 15]
+idx: 8 , output_dict_len: 695
+user class dict total [12, 81, 43, 73, 78, 40, 99, 57, 89, 49]
+idx: 9 , output_dict_len: 343
+Creating a baseline federated dataset
+class_num 100
+user class dict total [20, 79, 93, 54, 52, 65, 0, 1, 48, 74]
+idx: 0 , output_dict_len: 399
+user class dict total [44, 82, 35, 69, 91, 42, 33, 14, 5, 62]
+idx: 1 , output_dict_len: 176
+user class dict total [32, 55, 96, 10, 21, 31, 90, 27, 28, 76]
+idx: 2 , output_dict_len: 154
+user class dict total [80, 71, 66, 58, 23, 70, 60, 72, 17, 18]
+idx: 3 , output_dict_len: 162
+user class dict total [45, 34, 11, 56, 84, 13, 41, 30, 24, 85]
+idx: 4 , output_dict_len: 221
+user class dict total [51, 75, 37, 6, 53, 94, 95, 39, 47, 98]
+idx: 5 , output_dict_len: 157
+user class dict total [36, 7, 50, 3, 63, 59, 9, 77, 64, 92]
+idx: 6 , output_dict_len: 171
+user class dict total [86, 97, 61, 19, 25, 4, 16, 8, 46, 26]
+idx: 7 , output_dict_len: 404
+user class dict total [2, 88, 29, 22, 87, 67, 68, 38, 83, 15]
+idx: 8 , output_dict_len: 415
+user class dict total [12, 81, 43, 73, 78, 40, 99, 57, 89, 49]
+idx: 9 , output_dict_len: 206
+federated all dataset
+[pfedmoap] users=10  ex0=673
+out: ['face', 'leopard', 'motorbike', 'accordion', 'airplane', 'anchor', 'ant', 'barrel', 'bass', 'beaver', 'binocular', 'bonsai', 'brain', 'brontosaurus', 'buddha', 'butterfly', 'camera', 'cannon', 'car_side', 'ceiling_fan', 'cellphone', 'chair', 'chandelier', 'cougar_body', 'cougar_face', 'crab', 'crayfish', 'crocodile', 'crocodile_head', 'cup', 'dalmatian', 'dollar_bill', 'dolphin', 'dragonfly', 'electric_guitar', 'elephant', 'emu', 'euphonium', 'ewer', 'ferry', 'flamingo', 'flamingo_head', 'garfield', 'gerenuk', 'gramophone', 'grand_piano', 'hawksbill', 'headphone', 'hedgehog', 'helicopter', 'ibis', 'inline_skate', 'joshua_tree', 'kangaroo', 'ketch', 'lamp', 'laptop', 'llama', 'lobster', 'lotus', 'mandolin', 'mayfly', 'menorah', 'metronome', 'minaret', 'nautilus', 'octopus', 'okapi', 'pagoda', 'panda', 'pigeon', 'pizza', 'platypus', 'pyramid', 'revolver', 'rhino', 'rooster', 'saxophone', 'schooner', 'scissors', 'scorpion', 'sea_horse', 'snoopy', 'soccer_ball', 'stapler', 'starfish', 'stegosaurus', 'stop_sign', 'strawberry', 'sunflower', 'tick', 'trilobite', 'umbrella', 'watch', 'water_lilly', 'wheelchair', 'wild_cat', 'windsor_chair', 'wrench', 'yin_yang']
+classes_per_client: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+Initializing class-specific contexts
+Initial context: "X X X X X X X X X X X X X X X X"
+Number of context words (tokens): 16
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  0 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 6.9320
+[client 0] Δ||ctx_global|| = 1.1875e+00
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 5.7410
+[client 1] Δ||ctx_global|| = 7.0312e-01
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 7.1411
+[client 2] Δ||ctx_global|| = 4.5312e-01
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 6.1062
+[client 3] Δ||ctx_global|| = 6.5625e-01
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 4.1501
+[client 4] Δ||ctx_global|| = 3.7500e-01
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 4.6779
+[client 5] Δ||ctx_global|| = 1.0625e+00
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 4.6248
+[client 6] Δ||ctx_global|| = 7.1875e-01
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 7.5466
+[client 7] Δ||ctx_global|| = 2.7344e+00
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 7.7283
+[client 8] Δ||ctx_global|| = 1.5188e+01
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 5.8113
+[client 9] Δ||ctx_global|| = 7.6562e-01
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 0 in client 0 acc: 80.95
+round 0 in client 1 acc: 69.89
+round 0 in client 2 acc: 50.65
+round 0 in client 3 acc: 78.40
+round 0 in client 4 acc: 62.90
+round 0 in client 5 acc: 62.42
+round 0 in client 6 acc: 53.80
+round 0 in client 7 acc: 79.46
+round 0 in client 8 acc: 85.78
+round 0 in client 9 acc: 77.67
+[SAVE] round 0: wrote expert pool → pathological_pool_caltech101_r000.pkl.gz
+Wrote expert pools of round 0
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  1 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 3.7770
+[client 0] Δ||ctx_global|| = 3.1250e-01
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 3.9460
+[client 1] Δ||ctx_global|| = 4.3750e-01
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 5.4038
+[client 2] Δ||ctx_global|| = 1.2500e-01
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 3.3660
+[client 3] Δ||ctx_global|| = 4.6875e-02
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 3.2522
+[client 4] Δ||ctx_global|| = 1.0938e-01
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 3.9385
+[client 5] Δ||ctx_global|| = 2.6562e-01
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 3.0513
+[client 6] Δ||ctx_global|| = 2.5000e-01
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 4.1584
+[client 7] Δ||ctx_global|| = 6.2500e-02
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 4.1509
+[client 8] Δ||ctx_global|| = 2.3438e-01
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 3.4139
+[client 9] Δ||ctx_global|| = 1.5625e-01
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 1 in client 0 acc: 94.49
+round 1 in client 1 acc: 92.05
+round 1 in client 2 acc: 72.73
+round 1 in client 3 acc: 70.99
+round 1 in client 4 acc: 82.35
+round 1 in client 5 acc: 57.32
+round 1 in client 6 acc: 84.80
+round 1 in client 7 acc: 93.07
+round 1 in client 8 acc: 92.29
+round 1 in client 9 acc: 78.64
+[SAVE] round 1: wrote expert pool → pathological_pool_caltech101_r001.pkl.gz
+Wrote expert pools of round 1
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  2 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.9468
+[client 0] Δ||ctx_global|| = 1.5625e-02
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 2.5342
+[client 1] Δ||ctx_global|| = 1.5625e-02
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 2.8760
+[client 2] Δ||ctx_global|| = 4.6875e-02
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 2.9744
+[client 3] Δ||ctx_global|| = 4.6875e-02
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 2.3955
+[client 4] Δ||ctx_global|| = 3.1250e-02
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 4.1160
+[client 5] Δ||ctx_global|| = 1.5625e-01
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 2.0247
+[client 6] Δ||ctx_global|| = 1.5625e-02
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.5621
+[client 7] Δ||ctx_global|| = 1.5625e-02
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 3.1948
+[client 8] Δ||ctx_global|| = 7.8125e-02
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 3.6125
+[client 9] Δ||ctx_global|| = 7.8125e-02
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 2 in client 0 acc: 88.47
+round 2 in client 1 acc: 72.73
+round 2 in client 2 acc: 69.48
+round 2 in client 3 acc: 91.98
+round 2 in client 4 acc: 80.09
+round 2 in client 5 acc: 91.08
+round 2 in client 6 acc: 73.10
+round 2 in client 7 acc: 84.41
+round 2 in client 8 acc: 97.35
+round 2 in client 9 acc: 95.63
+[SAVE] round 2: wrote expert pool → pathological_pool_caltech101_r002.pkl.gz
+Wrote expert pools of round 2
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  3 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 3.3934
+[client 0] Δ||ctx_global|| = 3.1250e-02
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 2.6169
+[client 1] Δ||ctx_global|| = 3.1250e-02
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 4.0769
+[client 2] Δ||ctx_global|| = 6.2500e-02
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 2.0193
+[client 3] Δ||ctx_global|| = 0.0000e+00
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.9213
+[client 4] Δ||ctx_global|| = 1.5625e-02
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 1.6763
+[client 5] Δ||ctx_global|| = 0.0000e+00
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 2.5034
+[client 6] Δ||ctx_global|| = 4.6875e-02
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.7034
+[client 7] Δ||ctx_global|| = 3.1250e-02
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.9767
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 1.9419
+[client 9] Δ||ctx_global|| = 0.0000e+00
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 3 in client 0 acc: 93.98
+round 3 in client 1 acc: 96.59
+round 3 in client 2 acc: 75.32
+round 3 in client 3 acc: 72.84
+round 3 in client 4 acc: 92.31
+round 3 in client 5 acc: 71.34
+round 3 in client 6 acc: 91.23
+round 3 in client 7 acc: 95.30
+round 3 in client 8 acc: 96.87
+round 3 in client 9 acc: 86.89
+[SAVE] round 3: wrote expert pool → pathological_pool_caltech101_r003.pkl.gz
+Wrote expert pools of round 3
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  4 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.9216
+[client 0] Δ||ctx_global|| = 1.5625e-02
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 1.6934
+[client 1] Δ||ctx_global|| = 0.0000e+00
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 2.8064
+[client 2] Δ||ctx_global|| = 1.5625e-02
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 2.7795
+[client 3] Δ||ctx_global|| = 1.5625e-02
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.7228
+[client 4] Δ||ctx_global|| = 0.0000e+00
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 2.2786
+[client 5] Δ||ctx_global|| = 1.5625e-02
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 1.5264
+[client 6] Δ||ctx_global|| = 0.0000e+00
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.2727
+[client 7] Δ||ctx_global|| = 0.0000e+00
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.9520
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 2.3657
+[client 9] Δ||ctx_global|| = 3.1250e-02
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 4 in client 0 acc: 88.97
+round 4 in client 1 acc: 96.02
+round 4 in client 2 acc: 78.57
+round 4 in client 3 acc: 87.65
+round 4 in client 4 acc: 90.50
+round 4 in client 5 acc: 84.71
+round 4 in client 6 acc: 84.80
+round 4 in client 7 acc: 90.10
+round 4 in client 8 acc: 97.59
+round 4 in client 9 acc: 94.17
+[SAVE] round 4: wrote expert pool → pathological_pool_caltech101_r004.pkl.gz
+Wrote expert pools of round 4
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  5 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.8958
+[client 0] Δ||ctx_global|| = 1.5625e-02
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 1.9639
+[client 1] Δ||ctx_global|| = 0.0000e+00
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 2.3086
+[client 2] Δ||ctx_global|| = 0.0000e+00
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 1.7705
+[client 3] Δ||ctx_global|| = 0.0000e+00
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.7231
+[client 4] Δ||ctx_global|| = 0.0000e+00
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 1.7340
+[client 5] Δ||ctx_global|| = 1.5625e-02
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 1.6555
+[client 6] Δ||ctx_global|| = 0.0000e+00
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.3352
+[client 7] Δ||ctx_global|| = 1.5625e-02
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.8120
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 2.0178
+[client 9] Δ||ctx_global|| = 0.0000e+00
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 5 in client 0 acc: 95.74
+round 5 in client 1 acc: 96.02
+round 5 in client 2 acc: 79.22
+round 5 in client 3 acc: 77.78
+round 5 in client 4 acc: 96.38
+round 5 in client 5 acc: 85.99
+round 5 in client 6 acc: 94.74
+round 5 in client 7 acc: 94.55
+round 5 in client 8 acc: 98.07
+round 5 in client 9 acc: 80.58
+[SAVE] round 5: wrote expert pool → pathological_pool_caltech101_r005.pkl.gz
+Wrote expert pools of round 5
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  6 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.7698
+[client 0] Δ||ctx_global|| = 0.0000e+00
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 1.7236
+[client 1] Δ||ctx_global|| = 0.0000e+00
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 1.7034
+[client 2] Δ||ctx_global|| = 0.0000e+00
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 1.8884
+[client 3] Δ||ctx_global|| = 0.0000e+00
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.7067
+[client 4] Δ||ctx_global|| = 0.0000e+00
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 1.4355
+[client 5] Δ||ctx_global|| = 0.0000e+00
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 1.4802
+[client 6] Δ||ctx_global|| = 0.0000e+00
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.2549
+[client 7] Δ||ctx_global|| = 1.5625e-02
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.8002
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 2.0352
+[client 9] Δ||ctx_global|| = 1.5625e-02
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 6 in client 0 acc: 92.23
+round 6 in client 1 acc: 95.45
+round 6 in client 2 acc: 78.57
+round 6 in client 3 acc: 82.72
+round 6 in client 4 acc: 89.59
+round 6 in client 5 acc: 82.80
+round 6 in client 6 acc: 95.32
+round 6 in client 7 acc: 96.04
+round 6 in client 8 acc: 97.83
+round 6 in client 9 acc: 93.69
+[SAVE] round 6: wrote expert pool → pathological_pool_caltech101_r006.pkl.gz
+Wrote expert pools of round 6
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  7 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.7450
+[client 0] Δ||ctx_global|| = 0.0000e+00
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 1.6331
+[client 1] Δ||ctx_global|| = 0.0000e+00
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 1.8425
+[client 2] Δ||ctx_global|| = 0.0000e+00
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 1.8108
+[client 3] Δ||ctx_global|| = 0.0000e+00
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.7277
+[client 4] Δ||ctx_global|| = 0.0000e+00
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 1.7441
+[client 5] Δ||ctx_global|| = 1.5625e-02
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 1.4177
+[client 6] Δ||ctx_global|| = 0.0000e+00
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.1560
+[client 7] Δ||ctx_global|| = 0.0000e+00
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.8104
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 1.6471
+[client 9] Δ||ctx_global|| = 0.0000e+00
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 7 in client 0 acc: 95.74
+round 7 in client 1 acc: 97.73
+round 7 in client 2 acc: 78.57
+round 7 in client 3 acc: 84.57
+round 7 in client 4 acc: 93.21
+round 7 in client 5 acc: 89.81
+round 7 in client 6 acc: 79.53
+round 7 in client 7 acc: 95.54
+round 7 in client 8 acc: 98.07
+round 7 in client 9 acc: 92.23
+[SAVE] round 7: wrote expert pool → pathological_pool_caltech101_r007.pkl.gz
+Wrote expert pools of round 7
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  8 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.7087
+[client 0] Δ||ctx_global|| = 0.0000e+00
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 1.6775
+[client 1] Δ||ctx_global|| = 0.0000e+00
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 1.6758
+[client 2] Δ||ctx_global|| = 0.0000e+00
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 1.7031
+[client 3] Δ||ctx_global|| = 0.0000e+00
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.6667
+[client 4] Δ||ctx_global|| = 0.0000e+00
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 1.4414
+[client 5] Δ||ctx_global|| = 0.0000e+00
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 2.2244
+[client 6] Δ||ctx_global|| = 3.1250e-02
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 3.0067
+[client 7] Δ||ctx_global|| = 3.1250e-02
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.7032
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 1.7201
+[client 9] Δ||ctx_global|| = 0.0000e+00
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 8 in client 0 acc: 93.98
+round 8 in client 1 acc: 98.86
+round 8 in client 2 acc: 79.22
+round 8 in client 3 acc: 74.69
+round 8 in client 4 acc: 95.02
+round 8 in client 5 acc: 82.80
+round 8 in client 6 acc: 96.49
+round 8 in client 7 acc: 95.30
+round 8 in client 8 acc: 97.83
+round 8 in client 9 acc: 94.66
+[SAVE] round 8: wrote expert pool → pathological_pool_caltech101_r008.pkl.gz
+Wrote expert pools of round 8
+This round clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+------------- federated  9 -th  --------------------------
+Client 0 Ep :1/1 Tr_Data:673 Tot Loss: 2.7218
+[client 0] Δ||ctx_global|| = 0.0000e+00
+Adding client 0 prompt to the pool.
+Client 1 Ep :1/1 Tr_Data:296 Tot Loss: 1.4478
+[client 1] Δ||ctx_global|| = 0.0000e+00
+Adding client 1 prompt to the pool.
+Client 2 Ep :1/1 Tr_Data:251 Tot Loss: 1.6484
+[client 2] Δ||ctx_global|| = 0.0000e+00
+Adding client 2 prompt to the pool.
+Client 3 Ep :1/1 Tr_Data:275 Tot Loss: 1.8772
+[client 3] Δ||ctx_global|| = 1.5625e-02
+Adding client 3 prompt to the pool.
+Client 4 Ep :1/1 Tr_Data:369 Tot Loss: 1.5515
+[client 4] Δ||ctx_global|| = 0.0000e+00
+Adding client 4 prompt to the pool.
+Client 5 Ep :1/1 Tr_Data:265 Tot Loss: 1.7068
+[client 5] Δ||ctx_global|| = 1.5625e-02
+Adding client 5 prompt to the pool.
+Client 6 Ep :1/1 Tr_Data:286 Tot Loss: 1.3577
+[client 6] Δ||ctx_global|| = 0.0000e+00
+Adding client 6 prompt to the pool.
+Client 7 Ep :1/1 Tr_Data:675 Tot Loss: 2.9968
+[client 7] Δ||ctx_global|| = 0.0000e+00
+Adding client 7 prompt to the pool.
+Client 8 Ep :1/1 Tr_Data:695 Tot Loss: 2.6993
+[client 8] Δ||ctx_global|| = 0.0000e+00
+Adding client 8 prompt to the pool.
+Client 9 Ep :1/1 Tr_Data:343 Tot Loss: 1.7017
+[client 9] Δ||ctx_global|| = 0.0000e+00
+Adding client 9 prompt to the pool.
+Adding aggregated prompt to the pool.
+Global prompt evaluation...
+round 9 in client 0 acc: 95.74
+round 9 in client 1 acc: 94.89
+round 9 in client 2 acc: 80.52
+round 9 in client 3 acc: 86.42
+round 9 in client 4 acc: 91.40
+round 9 in client 5 acc: 91.08
+round 9 in client 6 acc: 90.64
+round 9 in client 7 acc: 94.80
+round 9 in client 8 acc: 98.07
+round 9 in client 9 acc: 93.20
+[SAVE] round 9: wrote expert pool → pathological_pool_caltech101_r009.pkl.gz
+Wrote expert pools of round 9
+[CLIENT 0/MoE] learned local mixture weights: [0.1010545939207077, 0.09555917978286743, 0.09915454685688019, 0.10132890939712524, 0.09918634593486786, 0.10154614597558975, 0.09972885996103287, 0.10168863832950592, 0.0972478836774826, 0.10350487381219864]
+[CLIENT 1/MoE] learned local mixture weights: [0.12133824825286865, 0.10014748573303223, 0.09688552469015121, 0.09969764202833176, 0.09066848456859589, 0.10034799575805664, 0.09303250908851624, 0.09601228684186935, 0.10031759738922119, 0.10155217349529266]
+[CLIENT 2/MoE] learned local mixture weights: [0.10158754140138626, 0.1198466494679451, 0.0906161442399025, 0.10082361847162247, 0.09731805324554443, 0.0971807911992073, 0.0920962318778038, 0.10042304545640945, 0.10072727501392365, 0.09938069432973862]
+[CLIENT 3/MoE] learned local mixture weights: [0.09678857773542404, 0.09324929863214493, 0.1366156041622162, 0.09554962813854218, 0.092494897544384, 0.09208894520998001, 0.08396316319704056, 0.09922957420349121, 0.0975276529788971, 0.1124926209449768]
+[CLIENT 4/MoE] learned local mixture weights: [0.10071879625320435, 0.09501297771930695, 0.08875052630901337, 0.10418041795492172, 0.10253957659006119, 0.10257407277822495, 0.10135658830404282, 0.10320602357387543, 0.10163063555955887, 0.10003037750720978]
+[CLIENT 5/MoE] learned local mixture weights: [0.09606967866420746, 0.09822167456150055, 0.09494442492723465, 0.09859125316143036, 0.11159998178482056, 0.09348712116479874, 0.09865852445363998, 0.10055810213088989, 0.09875277429819107, 0.10911639779806137]
+[CLIENT 6/MoE] learned local mixture weights: [0.10171209275722504, 0.10001824051141739, 0.097316674888134, 0.09736377745866776, 0.09140708297491074, 0.11516572535037994, 0.10043934732675552, 0.10105000436306, 0.0963045284152031, 0.09922254830598831]
+[CLIENT 7/MoE] learned local mixture weights: [0.10072093456983566, 0.09804395586252213, 0.09319200366735458, 0.09937262535095215, 0.09940127283334732, 0.10189846903085709, 0.10371258109807968, 0.10089320689439774, 0.10129911452531815, 0.10146581381559372]
+[CLIENT 8/MoE] learned local mixture weights: [0.10003624111413956, 0.09780045598745346, 0.10048337280750275, 0.10006237775087357, 0.10019902884960175, 0.09923237562179565, 0.10033796727657318, 0.10096223652362823, 0.10019375383853912, 0.10069217532873154]
+[CLIENT 9/MoE] learned local mixture weights: [0.10146788507699966, 0.10098598897457123, 0.09785892069339752, 0.09956593066453934, 0.09835072606801987, 0.09614704549312592, 0.09899710863828659, 0.09983902424573898, 0.10425344854593277, 0.10253394395112991]
+[LOCAL-MOE] round 9 client 0 top1: 92.98
+[LOCAL-MoE] client 0: ECE=0.0336 MCE=0.3777 AUROC=0.9999
+[LOCAL-MOE] round 9 client 1 top1: 96.59
+[LOCAL-MoE] client 1: ECE=0.0974 MCE=0.8876 AUROC=1.0000
+[LOCAL-MOE] round 9 client 2 top1: 81.17
+[LOCAL-MoE] client 2: ECE=0.0785 MCE=0.4388 AUROC=0.9925
+[LOCAL-MOE] round 9 client 3 top1: 78.40
+[LOCAL-MoE] client 3: ECE=0.1029 MCE=0.8348 AUROC=0.9989
+[LOCAL-MOE] round 9 client 4 top1: 95.02
+[LOCAL-MoE] client 4: ECE=0.0769 MCE=0.8033 AUROC=1.0000
+[LOCAL-MOE] round 9 client 5 top1: 82.80
+[LOCAL-MoE] client 5: ECE=0.0930 MCE=0.7661 AUROC=0.9997
+[LOCAL-MOE] round 9 client 6 top1: 97.08
+[LOCAL-MoE] client 6: ECE=0.1157 MCE=0.7371 AUROC=0.9999
+[LOCAL-MOE] round 9 client 7 top1: 95.54
+[LOCAL-MoE] client 7: ECE=0.0565 MCE=0.6548 AUROC=0.9996
+[LOCAL-MOE] round 9 client 8 top1: 98.07
+[LOCAL-MoE] client 8: ECE=0.0239 MCE=0.5842 AUROC=0.9998
+[LOCAL-MOE] round 9 client 9 top1: 94.66
+[LOCAL-MoE] client 9: ECE=0.0655 MCE=0.4642 AUROC=0.9997
+[LOCAL-MOE] round 9 mean top1 (macro): 91.23
+[LOCAL-MOE] round 9 mean top1 (micro): 92.78
+[LOCAL-MoE/pooled] ECE=0.0424 MCE=0.3054 AUROC(macro)=0.9995
